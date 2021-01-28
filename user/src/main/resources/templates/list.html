@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+</head>
+<body>
+<table bgcolor="#f0f8ff" border="1px">
+    <a href="/toAdd">新增</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/excel">导出excel</a>
+<thead>
+    <tr>
+        <td>用户编码</td>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>创建时间</td>
+        <td>操作</td>
+    </tr>
+</thead>
+<tbody>
+    <tr th:each="u:${list}">
+        <td th:text="${u?.id}"></td>
+        <td th:text="${u?.name}"></td>
+        <td th:text="${u?.gender}"></td>
+        <td th:text="${#dates.format(u?.createTime,'yyyy-MM-dd')}"></td>
+        <td><a th:href="@{/toUpdate(id=${u.id})}">修改</a>
+            <a onclick="return confirm('确定删除？')" th:href="@{/delete(id=${u.id})}" th:method="delete">删除</a>
+            <!--<a th:href="@{'users/modify/'+${user.id}}">修改</a>-->
+        </td>
+    </tr>
+</tbody>
+</table>
+</body>
+</html>

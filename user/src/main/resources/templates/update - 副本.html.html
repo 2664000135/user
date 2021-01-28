@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>update</title>
+</head>
+<body>
+<form action="/update">
+            <!--<p><td><input type="hidden" name="id" th:value="${user.id}"/></td></p>
+            <p><td>姓名：<input type="text" name="name" th:value="${user.name}"/></td></p>
+            <p> <td>性别：<input type="text" name="gender"th:value="${user.gender}"/></td></p>
+            <p><td>创建时间：<input type="text" name="createTime"th:value="${user.createTime}"/></td></p>-->
+            <input type="hidden" name="id" th:value="${user.id}"/>
+            姓名:<input type="text" name="name" th:value="${user.name}"/>
+            性别:<input type="text" name="gender" th:value="${user.gender}"/>
+            创建时间:<input type="text" name="createTime" th:value="${#dates.format(user.createTime,'yyyy-MM-dd')}"/>
+            <td><input type="submit"/></td>
+
+</form>
+</body>
+</html>

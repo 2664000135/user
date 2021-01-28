@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/yunshanfu
+    username: root
+    password: root
+  mvc:
+    date-format: yyyy-MM-dd
